@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For My Grumpy Babyyy 🐻💖</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Patrick Hand', cursive;
+      background: linear-gradient(to bottom, #ffd6ec, #cce6ff);
+    }
+
+    .floating-emoji {
+      position: absolute;
+      font-size: 2rem;
+      animation: floatUp 10s linear infinite;
+      pointer-events: none;
+      opacity: 0.7;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      20% { opacity: 0.7; }
+      100% {
+        transform: translateY(-10vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .container {
+      position: relative;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      color: #ff4da6;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .message-box {
+      background: white;
+      max-width: 420px;
+      padding: 18px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      font-size: 1.1rem;
+      color: #444;
+      margin: 10px 0;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin: 10px 0;
+    }
+
+    button {
+      background-color: #ff99cc;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 12px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.2s;
+      font-family: 'Patrick Hand', cursive;
+    }
+
+    button:hover {
+      transform: scale(1.08);
+    }
+
+    .popup {
+      font-size: 1.1rem;
+      color: #222;
+      background: #fff;
+      padding: 10px 15px;
+      border-radius: 12px;
+      border: 2px solid #ff99cc;
+      max-width: 320px;
+      margin-top: 10px;
+    }
+
+    .final-msg {
+      font-size: 1.3rem;
+      margin-top: 10px;
+      color: #7744cc;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Hey grumpy babyyy 🧸💗</h1>
+    <div class="message-box">
+      I know you're not feeling your best right now, but babyyy I just want you to know how much I love you. You're my whole heart, my comfort, my person. Every single piece of you is precious to me — even the grumpy parts 😤💞. I hope this page makes you feel even a little better, because you deserve to feel loved every second. I'm always here, cheering you on and hugging you in spirit 🫶💗
+    </div>
+
+    <div class="buttons">
+      <button onclick="showPopup('kiss')">Click me for a kiss 😚</button>
+      <button onclick="showCompliment()">Click me for a compliment 💬</button>
+      <button onclick="showPopup('car')">Click me for a carrr 🏎️</button>
+      <button onclick="showPopup('hug')">Click for a hug by Tash 🤗</button>
+    </div>
+
+    <div id="popup" class="popup"></div>
+
+    <div class="final-msg">
+      Grumpy or not... you're still my #1 forever. Now smile a lil, yeah? 😌🫶
+    </div>
+  </div>
+
+  <!-- Floating Emojis -->
+  <script>
+    const emojis = ['💗', '✨', '🏎️', '🧸', '☁️', '💞'];
+    for (let i = 0; i < 30; i++) {
+      const emoji = document.createElement('div');
+      emoji.className = 'floating-emoji';
+      emoji.style.left = `${Math.random() * 100}%`;
+      emoji.style.animationDuration = `${6 + Math.random() * 8}s`;
+      emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+      document.body.appendChild(emoji);
+    }
+
+    const compliments = [
+      "You're literally the finest and softest boy ever 😭💘",
+      "You're my sunshine on the gloomiest days 🌞💖",
+      "You make everything better by just existing 🫶",
+      "Even your grumpiness is adorable and precious 😤💗",
+      "I'm so proud of how far you've come, always 💪💕",
+      "You're my whole heart and you don’t even realize how amazing you are 💞",
+      "You’re the reason my heart feels full all the time 🥺💕",
+      "Every little thing about you makes me love you more 💗",
+      "Your smile could cure any bad day 🌈💘",
+      "Even when you're annoyed, you're still perfect to me 😚"
+    ];
+
+    function showPopup(type) {
+      const popup = document.getElementById('popup');
+      if (type === 'kiss') popup.innerText = '*smooooch* 😘💋💗 mwah mwah mwahhh';
+      else if (type === 'car') popup.innerText = "Here's your emotional support race car 🏎️💨💙";
+      else if (type === 'hug') popup.innerText = "Awww here you go baby *hug* 🤗💞";
+      popup.style.display = 'block';
+    }
+
+    function showCompliment() {
+      const popup = document.getElementById('popup');
+      const compliment = compliments[Math.floor(Math.random() * compliments.length)];
+      popup.innerText = compliment;
+      popup.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
